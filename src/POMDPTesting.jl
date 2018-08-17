@@ -1,6 +1,7 @@
 module POMDPTesting
 
 using POMDPs
+using Random
 
 export test_solver,
     probability_check,
