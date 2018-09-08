@@ -8,5 +8,8 @@ makedocs(
 
 deploydocs(
     repo = "github.com/JuliaPOMDP/POMDPTesting.jl.git",
-    julia = "1.0"
+    julia = "1.0",
+    target = "build",
+    deps = nothing,
+    make = nothing
 )
