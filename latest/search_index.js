@@ -13,15 +13,7 @@ var documenterSearchIndex = {"docs": [
     "page": "About",
     "title": "About",
     "category": "section",
-    "text": "POMDPTesting is a collection of tools to test various solvers for POMDPs.jl."
-},
-
-{
-    "location": "index.html#Index-1",
-    "page": "About",
-    "title": "Index",
-    "category": "section",
-    "text": ""
+    "text": "POMDPTesting is a collection of utilities for testing various models and solvers for POMDPs.jl."
 },
 
 {
