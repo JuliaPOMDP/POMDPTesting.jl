@@ -25,10 +25,10 @@ function obs_prob_consistency_check(pomdp::POMDP)
             psum = 0.0
             for o in ospace
                 p = pdf(obs, o)
-                @assert p ≥ 0 "Probability is negative for state: ", s, " action: ", a, " observation: ", o
+                @assert p ≥ 0 "Probability is negative for state: $s, action: $a, observation: $o"
                 psum += p
             end
-            @assert isapprox(psum, 1.0) "Observation probability does not sum to unity for state: ", s, " action: ", a
+            @assert isapprox(psum, 1.0) "Observation probability does not sum to unity for state: $s, action: $a"
         end
     end
 end
@@ -49,10 +49,10 @@ function trans_prob_consistency_check(pomdp::Union{MDP, POMDP})
             psum = 0.0
             for sp in sspace
                 p = pdf(tran, sp)
-                @assert p ≥ 0 "Probability is negative for state: ", s, " action: ", a, " next state: ", sp
+                @assert p ≥ 0 "Probability is negative for state: $s, action: $a, next state: $sp"
                 psum += p
             end
-            @assert isapprox(psum, 1.0) "Transition probability does not sum to unity for state: ", s, " action: ", a
+            @assert isapprox(psum, 1.0) "Transition probability does not sum to unity for state: $s, action: $a"
         end
     end
 end
