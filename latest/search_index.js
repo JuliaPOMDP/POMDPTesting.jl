@@ -29,7 +29,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Model",
     "title": "POMDPTesting.probability_check",
     "category": "function",
-    "text": "probability_check(pomdp::POMDP)  Checks if the transition and observation function of the discrete pomdp  have probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "probability_check(pomdp::POMDP) Checks if the transition and observation function of the discrete pomdp have probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
 },
 
 {
@@ -37,7 +37,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Model",
     "title": "POMDPTesting.obs_prob_consistency_check",
     "category": "function",
-    "text": "obs_prob_consistency_check(pomdp::POMDP)\n\nChecks if the observation function of the discrete pomdp  has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "obs_prob_consistency_check(pomdp::POMDP)\n\nChecks if the observation function of the discrete pomdp has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
 },
 
 {
@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Model",
     "title": "POMDPTesting.trans_prob_consistency_check",
     "category": "function",
-    "text": "trans_prob_consistency_check(pomdp::Union{MDP, POMDP})\n\nChecks if the transition function of the discrete problem  has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "trans_prob_consistency_check(pomdp::Union{MDP, POMDP})\n\nChecks if the transition function of the discrete problem has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
 },
 
 {
