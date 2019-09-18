@@ -21,5 +21,5 @@ states(p::TestPOMDP) = (true, false)
 actions(p::TestPOMDP) = (true, false)
 observations(p::TestPOMDP) = (true, false)
 @testset "model" begin
-    POMDPTesting.probability_check(TestPOMDP())
+    probability_check(TestPOMDP())
 end

@@ -19,7 +19,7 @@ function simulate(sim::TestSimulator, pomdp::POMDP, policy::Policy, updater::Upd
     while !isterminal(pomdp, s) && step <= sim.max_steps # TODO also check for terminal observation
         a = action(policy, b)
 
-        (sp, o, r) = generate_sor(pomdp, s, a, sim.rng)
+        (sp, o, r) = gen(DDNOut(:sp, :o, :r), pomdp, s, a, sim.rng)
 
         r_total += disc*r
 
@@ -43,7 +43,7 @@ function simulate(sim::TestSimulator, mdp::MDP, policy::Policy, s)
     while !isterminal(mdp, s) && step <= sim.max_steps # TODO also check for terminal observation
         a = action(policy, s)
 
-        (sp, r) = generate_sr(mdp, s, a, sim.rng)
+        (sp, r) = gen(DDNOut(:sp, :r), mdp, s, a, sim.rng)
 
         r_total += disc*r
 
@@ -75,7 +75,7 @@ test_solver(solver, BabyPOMDP())
 ```
 """
 function test_solver(solver::Solver, problem::POMDP; max_steps=10, updater=nothing)
-    
+
     policy = solve(solver, problem)
     if updater==nothing
         updater = POMDPs.updater(policy)
@@ -87,7 +87,7 @@ function test_solver(solver::Solver, problem::POMDP; max_steps=10, updater=nothi
 end
 
 function test_solver(solver::Solver, problem::MDP; max_steps=10)
-    
+
     policy = solve(solver, problem)
 
     sim = TestSimulator(MersenneTwister(1), max_steps)
