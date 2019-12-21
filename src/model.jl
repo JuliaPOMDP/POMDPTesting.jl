@@ -52,7 +52,7 @@ function has_consistent_transition_distributions(m::Union{MDP,POMDP})
                     ok = false
                 end
             end
-        else
+        end
     end
     return ok
 end
