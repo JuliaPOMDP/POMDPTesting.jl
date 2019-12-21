@@ -1,3 +1,15 @@
+"""
+    has_consistent_distributions(m::Union)
+
+Return true if no problems are found in the distributions for a discrete problem. Print information and return false if problems are found.
+
+Tests whether
+- All probabilities are positive
+- Probabilities for all distributions sum to 1
+- All items with positive probability are in the support
+"""
+function has_consistent_distributions end
+
 function has_consistent_distributions(m::POMDP)
     return has_consistent_initial_distribution(m) &&
         has_consistent_transition_distributions(m) &&
@@ -9,6 +21,13 @@ function has_consistent_distributions(m::MDP)
         has_consistent_transition_distributions(m)
 end
 
+"""
+    has_consistent_transition_distributions(m)
+
+Return true if no problems are found in the transition distributions for a discrete problem. Print information and return false if problems are found.
+
+See `has_consistent_distributions` for information on what checks are performed.
+"""
 function has_consistent_transition_distributions(m::Union{MDP,POMDP})
     ok = true
     for s in states(m)
@@ -38,6 +57,13 @@ function has_consistent_transition_distributions(m::Union{MDP,POMDP})
     return ok
 end
 
+"""
+    has_consistent_observation_distributions(m)
+
+Return true if no problems are found in the observation distributions for a discrete POMDP. Print information and return false if problems are found.
+
+See `has_consistent_distributions` for information on what checks are performed.
+"""
 function has_consistent_observation_distributions(m::POMDP)
     ok = true
     for s in states(m)
@@ -69,6 +95,13 @@ function has_consistent_observation_distributions(m::POMDP)
     return ok
 end
 
+"""
+    has_consistent_initial_distribution(m)
+
+Return true if no problems are found with the initial state distribution for a discrete problem. Print information and return false if problems are found.
+
+See `has_consistent_distributions` for information on what checks are performed.
+"""
 function has_consistent_initial_distribution(m::Union{MDP,POMDP})
     ok = true
     d = initialstate_distribution(m)
@@ -98,6 +131,7 @@ Checks if the transition and observation function of the discrete `pomdp`
 have probability mass that sums up to unity for all state-action pairs.
 """
 function probability_check(pomdp::POMDP)
+    @warn "probability_check(m) is deprecated. Use @test has_consistent_distributions(m) instead."
     obs_prob_consistency_check(pomdp)
     trans_prob_consistency_check(pomdp)
 end
@@ -108,6 +142,7 @@ Checks if the observation function of the discrete `pomdp`
 has probability mass that sums up to unity for all state-action pairs.
 """
 function obs_prob_consistency_check(pomdp::POMDP)
+    @warn "obs_prob_consistency_check(m) is deprecated. Use @test has_consistent_observation_distributions(m) instead."
     # initalize space
     sspace = states(pomdp)
     aspace = actions(pomdp)
@@ -133,6 +168,7 @@ Checks if the transition function of the discrete problem
 has probability mass that sums up to unity for all state-action pairs.
 """
 function trans_prob_consistency_check(pomdp::Union{MDP, POMDP})
+    @warn "trans_prob_consistency_check(m) is deprecated. Use @test has_consistent_transition_distributions(m) instead."
     # initalize space
     sspace = states(pomdp)
     aspace = actions(pomdp)
