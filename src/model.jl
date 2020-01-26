@@ -39,16 +39,16 @@ function has_consistent_transition_distributions(m::Union{MDP,POMDP})
                 for sp in states(m) 
                     p = pdf(d, sp)
                     if p < 0.0
-                        @info "Transition probability negative ($p < 0.0)." s a sp
+                        @warn "Transition probability negative ($p < 0.0)." s a sp
                         ok = false
                     elseif p > 0.0 && !(sp in sup)
-                        @info "State $sp with probability $p is not in support" s a
+                        @warn "State $sp with probability $p is not in support" s a
                         ok = false
                     end
                     psum += p
                 end
                 if !isapprox(psum, 1.0)
-                    @info "Transition probabilities sum to $psum, not 1." s a
+                    @warn "Transition probabilities sum to $psum, not 1." s a
                     ok = false
                 end
             end
@@ -76,16 +76,16 @@ function has_consistent_observation_distributions(m::POMDP)
                     for o in observations(m)
                         p = pdf(obs, o)
                         if p < 0.0
-                            @info "Observation probability negative ($p < 0.0)." s a sp o
+                            @warn "Observation probability negative ($p < 0.0)." s a sp o
                             ok = false
                         elseif p > 0.0 && !(o in sup)
-                            @info "Observation $o with probability $p is not in support." s a sp
+                            @warn "Observation $o with probability $p is not in support." s a sp
                             ok = false
                         end
                         psum += p
                     end
                     if !isapprox(psum, 1.0)
-                        @info "Observation probabilities sum to $psum, not 1." s a sp
+                        @warn "Observation probabilities sum to $psum, not 1." s a sp
                         ok = false
                     end
                 end
@@ -111,15 +111,15 @@ function has_consistent_initial_distribution(m::Union{MDP,POMDP})
         p = pdf(d, s)
         psum += p
         if p < 0.0
-            @info "Initial state probability negative ($p < 0.0)" s
+            @watn "Initial state probability negative ($p < 0.0)" s
             ok = false
         elseif p > 0.0 && !(s in sup)
-            @info "State $s with probability $p is not in initial distribution support."
+            @warn "State $s with probability $p is not in initial distribution support."
             ok = false
         end
     end
     if !isapprox(psum, 1.0)
-        @info "Initial state probabilities sum to $psum, not 1."
+        @warn "Initial state probabilities sum to $psum, not 1."
         ok = false
     end
     return ok
