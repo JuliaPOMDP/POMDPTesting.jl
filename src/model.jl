@@ -111,7 +111,7 @@ function has_consistent_initial_distribution(m::Union{MDP,POMDP})
         p = pdf(d, s)
         psum += p
         if p < 0.0
-            @watn "Initial state probability negative ($p < 0.0)" s
+            @warn "Initial state probability negative ($p < 0.0)" s
             ok = false
         elseif p > 0.0 && !(s in sup)
             @warn "State $s with probability $p is not in initial distribution support."
