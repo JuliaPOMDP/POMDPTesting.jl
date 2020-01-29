@@ -25,27 +25,35 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "model.html#POMDPTesting.probability_check",
+    "location": "model.html#POMDPTesting.has_consistent_distributions",
     "page": "Model",
-    "title": "POMDPTesting.probability_check",
+    "title": "POMDPTesting.has_consistent_distributions",
     "category": "function",
-    "text": "probability_check(pomdp::POMDP) Checks if the transition and observation function of the discrete pomdp have probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "has_consistent_distributions(m::Union)\n\nReturn true if no problems are found in the distributions for a discrete problem. Print information and return false if problems are found.\n\nTests whether\n\nAll probabilities are positive\nProbabilities for all distributions sum to 1\nAll items with positive probability are in the support\n\n\n\n\n\n"
 },
 
 {
-    "location": "model.html#POMDPTesting.obs_prob_consistency_check",
+    "location": "model.html#POMDPTesting.has_consistent_initial_distribution",
     "page": "Model",
-    "title": "POMDPTesting.obs_prob_consistency_check",
+    "title": "POMDPTesting.has_consistent_initial_distribution",
     "category": "function",
-    "text": "obs_prob_consistency_check(pomdp::POMDP)\n\nChecks if the observation function of the discrete pomdp has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "has_consistent_initial_distribution(m)\n\nReturn true if no problems are found with the initial state distribution for a discrete problem. Print information and return false if problems are found.\n\nSee has_consistent_distributions for information on what checks are performed.\n\n\n\n\n\n"
 },
 
 {
-    "location": "model.html#POMDPTesting.trans_prob_consistency_check",
+    "location": "model.html#POMDPTesting.has_consistent_transition_distributions",
     "page": "Model",
-    "title": "POMDPTesting.trans_prob_consistency_check",
+    "title": "POMDPTesting.has_consistent_transition_distributions",
     "category": "function",
-    "text": "trans_prob_consistency_check(pomdp::Union{MDP, POMDP})\n\nChecks if the transition function of the discrete problem has probability mass that sums up to unity for all state-action pairs.\n\n\n\n\n\n"
+    "text": "has_consistent_transition_distributions(m)\n\nReturn true if no problems are found in the transition distributions for a discrete problem. Print information and return false if problems are found.\n\nSee has_consistent_distributions for information on what checks are performed.\n\n\n\n\n\n"
+},
+
+{
+    "location": "model.html#POMDPTesting.has_consistent_observation_distributions",
+    "page": "Model",
+    "title": "POMDPTesting.has_consistent_observation_distributions",
+    "category": "function",
+    "text": "has_consistent_observation_distributions(m)\n\nReturn true if no problems are found in the observation distributions for a discrete POMDP. Print information and return false if problems are found.\n\nSee has_consistent_distributions for information on what checks are performed.\n\n\n\n\n\n"
 },
 
 {
@@ -53,7 +61,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Model",
     "title": "Model",
     "category": "section",
-    "text": "probability_check\nobs_prob_consistency_check\ntrans_prob_consistency_check"
+    "text": "has_consistent_distributions\nhas_consistent_initial_distribution\nhas_consistent_transition_distributions\nhas_consistent_observation_distributions"
 },
 
 {
