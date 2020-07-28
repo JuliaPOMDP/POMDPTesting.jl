@@ -1,7 +1,7 @@
 name = "POMDPTesting"
 uuid = "92e6a534-49c2-5324-9027-86e3c861ab81"
 repo = "https://github.com/JuliaPOMDP/POMDPTesting.jl"
-version = "0.2.1"
+version = "0.2.2"
 
 [deps]
 POMDPs = "a93abf59-7444-517b-a68a-c42f96afdd7d"
