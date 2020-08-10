@@ -104,7 +104,7 @@ See `has_consistent_distributions` for information on what checks are performed.
 """
 function has_consistent_initial_distribution(m::Union{MDP,POMDP})
     ok = true
-    d = initialstate_distribution(m)
+    d = initialstate(m)
     sup = Set(support(d))
     psum = 0.0
     for s in states(m)
