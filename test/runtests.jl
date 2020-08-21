@@ -6,7 +6,7 @@ using POMDPModelTools
 import POMDPs:
     transition,
     observation,
-    initialstate_distribution,
+    initialstate,
     updater,
     states,
     actions,
@@ -14,7 +14,7 @@ import POMDPs:
 
 struct TestPOMDP <: POMDP{Bool, Bool, Bool} end
 updater(problem::TestPOMDP) = DiscreteUpdater(problem)
-initialstate_distribution(::TestPOMDP) = BoolDistribution(0.0)
+initialstate(::TestPOMDP) = BoolDistribution(0.0)
 transition(p::TestPOMDP, s::Bool, a::Bool) = BoolDistribution(0.5)
 observation(p::TestPOMDP, a::Bool, sp::Bool) = BoolDistribution(0.5)
 states(p::TestPOMDP) = (true, false)

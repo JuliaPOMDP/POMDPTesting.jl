@@ -83,7 +83,7 @@ function test_solver(solver::Solver, problem::POMDP; max_steps=10, updater=nothi
 
     sim = TestSimulator(MersenneTwister(1), max_steps)
 
-    simulate(sim, problem, policy, updater, initialstate_distribution(problem))
+    simulate(sim, problem, policy, updater, initialstate(problem))
 end
 
 function test_solver(solver::Solver, problem::MDP; max_steps=10)
@@ -92,5 +92,5 @@ function test_solver(solver::Solver, problem::MDP; max_steps=10)
 
     sim = TestSimulator(MersenneTwister(1), max_steps)
 
-    simulate(sim, problem, policy, initialstate(problem, MersenneTwister(0)))
+    simulate(sim, problem, policy, rand(MersenneTwister(0), initialstate(problem)))
 end
