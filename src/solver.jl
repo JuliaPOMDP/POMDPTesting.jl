@@ -19,7 +19,7 @@ function simulate(sim::TestSimulator, pomdp::POMDP, policy::Policy, updater::Upd
     while !isterminal(pomdp, s) && step <= sim.max_steps # TODO also check for terminal observation
         a = action(policy, b)
 
-        (sp, o, r) = gen(DDNOut(:sp, :o, :r), pomdp, s, a, sim.rng)
+        (sp, o, r) = @gen(:sp, :o, :r)(pomdp, s, a, sim.rng)
 
         r_total += disc*r
 
@@ -43,7 +43,7 @@ function simulate(sim::TestSimulator, mdp::MDP, policy::Policy, s)
     while !isterminal(mdp, s) && step <= sim.max_steps # TODO also check for terminal observation
         a = action(policy, s)
 
-        (sp, r) = gen(DDNOut(:sp, :r), mdp, s, a, sim.rng)
+        (sp, r) = @gen(:sp, :r)(mdp, s, a, sim.rng)
 
         r_total += disc*r
 
