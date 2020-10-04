@@ -36,6 +36,12 @@ function has_consistent_transition_distributions(m::Union{MDP,POMDP})
                 d = transition(m, s, a)
                 psum = 0.0
                 sup = Set(support(d))
+                for sp in sup
+                    if pdf(d, sp) > 0.0 && !(sp in states(m))
+                        @warn "sp in support(transition(m, s, a)), but not in states(m)" s a sp
+                        ok = false
+                    end
+                end
                 for sp in states(m) 
                     p = pdf(d, sp)
                     if p < 0.0
@@ -73,6 +79,12 @@ function has_consistent_observation_distributions(m::POMDP)
                     obs = observation(m, s, a, sp)
                     psum = 0.0
                     sup = Set(support(obs))
+                    for o in sup
+                        if pdf(obs, o) > 0.0 && !(o in observations(m))
+                            @warn "o in support(observation(m, s, a, sp)), but not in observations(m)" s a sp o
+                            ok = false
+                        end
+                    end
                     for o in observations(m)
                         p = pdf(obs, o)
                         if p < 0.0
