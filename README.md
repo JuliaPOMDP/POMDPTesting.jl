@@ -1,6 +1,3 @@
-# POMDPTesting.jl
+# ~~POMDPTesting.jl~~
 
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://juliapomdp.github.io/POMDPTesting.jl/stable)
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://juliapomdp.github.io/POMDPTesting.jl/latest)
-
-[![Build Status](https://travis-ci.org/JuliaPOMDP/POMDPTesting.jl.svg?branch=master)](https://travis-ci.org/JuliaPOMDP/POMDPTesting.jl)
+POMDPTesting has been deprecated and its functionality has been moved to [POMDPTools](https://github.com/JuliaPOMDP/POMDPs.jl/tree/master/lib/POMDPTools). Please use that instead.
